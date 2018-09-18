@@ -1,0 +1,108 @@
+---
+title: "adminrR Meetup Analytics"
+author: "Andrea Schnell"
+---
+
+
+```{r}
+library(meetupr)
+library(tidyverse)
+library(magrittr)
+library(tidytext)
+
+Sys.setenv(MEETUP_KEY = "36b7c9452951431a434a33123e42f")
+
+urlname <- "adminR"
+(events <- get_events(urlname))
+
+adminr_members <- get_members("adminR")
+
+adminr_guests <- get_event_rsvps("adminR", "253930551") 
+
+%>% filter(response == "yes")
+
+n_members <- adminr_members$id
+
+purrr::map()
+
+
+mem_list <- adminr_members$resource %>% unlist(.$group_profile) %>% data_frame() %>% select(group_profile.answers.answer)
+names(mem_list)
+
+
+%>% filter(id == 189064954)
+
+
+
+adminr_members$resource[[91]]$group_profile$answers[[1]]$answer
+
+adminr_members$resource[[91]]$group_profile$answers[[2]]$answer
+
+
+str(adminr_members$resource)
+```
+
+
+# City
+```{r}
+adminr_members %>% 
+  inner_join(., adminr_guests, by = c('id' = 'member_id')) %>% 
+  group_by(city, response) %>% 
+  tally() %>% 
+  ungroup() %>% 
+  mutate(city = fct_reorder(city, n)) %>% 
+  ggplot(., aes(x = city, y = n, fill = response)) +
+  geom_bar(stat = "identity")+
+  coord_flip()
+
+
+```
+
+# Gender
+```{r}
+library(stringr)
+library(reshape2)
+library(statR)
+
+
+
+vornamen <- readxl::read_xlsx("vornamen_geschlecht.xlsx") %>% 
+  mutate(female  = as.numeric(female),
+         male = as.numeric(male))
+
+gender_guess <- vornamen %>% 
+  mutate_all(funs(replace(., is.na(.), 0))) %>% 
+  group_by(name) %>% 
+  mutate(tot = sum(male, female, na.rm = T)) %>% 
+  mutate(prob_female = ifelse(is.na(female) == F, female/tot, male/tot)) %>% 
+  select(name, prob_female)
+  
+  
+  melt(id ="name") %>% 
+  group_by(name) %>% 
+  mutate(tot = sum(value, na.rm = T),
+         n_female = value[variable == "female"],
+         n_male = value[variable == "male"]) %>% 
+  # mutate(typ = ifelse(tot == n_female , "female",
+  #                     ifelse(tot == n_male, "male", "both"))) %>% 
+  mutate(prob_female = n_female/tot) %>% 
+  ungroup() %>% 
+  filter(variable == "female")
+
+gender <- adminr_guests %>% 
+  mutate(name = sub("\\s.*","",member_name)) %>% 
+  left_join(., gender_guess, by = c('name' = 'name')) %>% 
+  mutate(gender = ifelse(prob_female >= 0.5, "female", "male"))
+
+gender %>% 
+  ggplot(., aes(x = gender, fill = gender))+
+  geom_bar()
+
+
+```
+
+# Answers
+```{r}
+
+```
+
