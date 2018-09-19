@@ -123,27 +123,38 @@ names(mem_list)
 
 
 
-adminr_members$resource[[91]]$group_profile$answers[[1]]$answer
-
-adminr_members$resource[[91]]$group_profile$answers[[2]]$answer
 
 
-str(adminr_members$resource[1])
+ttt <- data.frame(id = c(rep(NA, length(n_members))) , answer1 = c(rep(NA, length(n_members))), answer2 = c(rep(NA, length(n_members))))
 
-adminr_members$resource[[1]]$group_profile$answers[[1]]$answer
+for (i in 1:length(n_members)){
+  
+  if (is.null(adminr_members$resource[[i]]$group_profile$answers[[1]]$answer) == F ){
+    
+    t <- data_frame(id = adminr_members$resource[[i]]$id, 
+           answer1 = adminr_members$resource[[i]]$group_profile$answers[[1]]$answer,
+           answer2 = adminr_members$resource[[i]]$group_profile$answers[[2]]$answer)
+    
+  } else
+    t <- data_frame(id = adminr_members$resource[[i]]$id, answer1 = NA, answer2 = NA)
+  
+t2 <- t
 
-lauf <- seq(n_members)
+ttt[i,] <- t2
 
-data_frame(id = adminr_members$resource[[1]]$id, 
-           answer1 = adminr_members$resource[[1]]$group_profile$answers[[1]]$answer,
-           answer2 = adminr_members$resource[[1]]$group_profile$answers[[2]]$answer)
+}
+
+
+ids <- left_join(ids, ttt, by = 'id')
+
+# rm(t, t2, tt)
 
 ```
 
 ```{r}
 map(got_chars[1:3], "name")
 
-map_dfr(adminr_members$resource[1:3], extract, c("id", "name"))
+ids <- map_dfr(adminr_members$resource, extract, c("id", "name"))
 
 t_id <- map(adminr_members$resource[1:3], extract, c("id", "name", "group_profile"))
 
@@ -157,5 +168,15 @@ map(t_answers[1:3], "answer[1]")
 
 
 adminr_members$resource[1:3]$group_profile$answers
+
+t <- adminr_members %>% unnest(resource)
+
+
+data <- adminr_members %>% select(resource)
+
+t <- data %>% unnest(resource)
+
+t %>% filter(grepl("answer", resource))
+
 ```
 
