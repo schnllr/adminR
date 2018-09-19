@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>  Analytical Pipelines -  Tools and Culture</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Andrea Schnell  eRum 2018" />
+    <link href="libs/font-awesome-5.0.11/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="libs\testzh.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# <br> Analytical Pipelines - <br>Tools and Culture
+### Andrea Schnell <br>eRum 2018
+
+---
+
+
+
+
+
+
+
+
+
+
+
+class:  left, top
+# Environment
+&lt;!-- <i class="fas  fa-building fa-3x fa-pull-right "></i> --&gt;
+
+
+
+
+
+```r
+ls()
+```
+
+
+
+&lt;br&gt;
+
+## Office
+
+```
+## [1] Official Statistics   Public Administration
+```
+
+## IT
+
+```
+## [1] closed up IT infrastructure very rigid firewall
+```
+
+
+## Users
+
+```
+## [1] Excel natives           R training «on-the-job»
+```
+
+
+
+---
+
+
+class: top, left
+
+# Workflow
+&lt;!-- <i class="fas  fa-cogs fa-3x fa-pull-right "></i> --&gt;
+
+
+
+
+&lt;!-- &lt;IMG SRC="libs/ausgangslage.png" width = auto height = auto&gt; --&gt;
+
+
+&lt;!-- &lt;br&gt; --&gt;
+
+&lt;!-- &lt;IMG SRC="libs/ziel.png" width = auto height = auto&gt; --&gt;
+
+&lt;!-- &lt;br&gt; --&gt;
+&lt;!-- .right[[Source: https://dataingovernment.blog.gov.uk](https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/)] --&gt;
+
+
+.pull-left[
+### Today
+- Data store  
+<i class="fas  fa-table fa-2x "></i> <i class="fas  fa-file-excel fa-2x "></i> <i class="fas  fa-database fa-2x "></i>
+
+- Statistical Analysis  
+<i class="fas  fa-file-excel fa-2x "></i>  <i class="fab  fa-r fa-2x "></i> 
+
+- Visualizations  
+<i class="fas  fa-chart-bar fa-2x "></i> <i class="fas  fa-chart-pie fa-2x "></i> <i class="fas  fa-chart-line fa-2x "></i>
+
+- Text  
+<i class="fas  fa-file-word fa-2x "></i>  
+
+- Publication  
+<i class="fas  fa-file-pdf fa-2x "></i>
+]
+
+.pull-right[
+### Tomorrow: Pipeline
+&lt;IMG SRC=libs/rmarkdown_wf.PNG width = "150" height = auto&gt;]
+
+---
+
+
+class:  left, top
+# Mission
+&lt;!-- <i class="fas  fa-trophy fa-3x fa-pull-right "></i> --&gt;
+## Reproducible Analytical Pipelines
+
+&lt;br&gt;
+
+### GOV.UK Data in Government
+
+[**Transforming the process of producing official statistics**](https://dataingovernment.blog.gov.uk/2017/11/27/transforming-the-process-of-producing-official-statistics/)
+
+[**Reproducible Analytical Pipelines**](https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/)
+
+[**RAP Companion**](https://ukgovdatascience.github.io/rap_companion/)
+
+
+
+
+.right[&lt;IMG SRC="libs/rap_hex.png" width = auto height = "200"&gt;]
+
+
+---
+
+class: top, left
+
+# How to get there?
+<i class="fas  fa-location-arrow fa-3x fa-pull-right "></i>
+
+&lt;br&gt;
+## Tools
+
+<i class="fas  fa-wrench fa-5x "></i>
+
+&lt;br&gt;
+
+## Culture
+
+<i class="fas  fa-people-carry fa-5x "></i>
+
+
+
+
+
+---
+
+class: top, left
+
+# Tools
+<i class="fas  fa-database fa-3x fa-pull-right "></i>
+## Data storage
+
+&lt;br&gt;
+### Data base
+
+```r
+library(ROracle)
+dbReadTable()
+dbWriteTable()
+```
+
+
+
+.pull-left[
+<i class="fas  fa-plus fa-3x fa-pull-left "></i>
+- traceable
+- secure
+- less redundancy
+]
+
+.pull-right[
+<i class="fas  fa-minus fa-3x fa-pull-left "></i>
+- how to
+- error handling (encoding, time zone)
+]
+
+---
+
+class: top, left
+
+# Tools
+## Corporate Design Toolbox
+
+```r
+library(statR)
+```
+
+.pull-left[
+### Colors, ggplot theme
+
+.center[&lt;IMG SRC="libs/map2.PNG" height = "350" width = auto&gt;]
+&lt;!-- ### Excel Formatting  --&gt;
+&lt;!-- .center[&lt;IMG SRC="libs/statxlsx.png" width = "300" height = auto&gt;] --&gt;
+]
+
+.pull-right[
+
+### RMarkdown template
+
+
+.center[&lt;IMG SRC="libs/report_cover2.PNG" height = "350" width = auto&gt;]
+]
+
+
+
+---
+
+
+class: top, left
+
+# Tools
+
+&lt;!-- <i class="fas  fa-step-forward fa-3x fa-pull-right "></i> --&gt;
+
+## Next steps
+
+&lt;br&gt;
+### R
+<i class="fab  fa-r fa-2x fa-pull-right "></i>
+- RProjects
+- RPackages
+
+
+### Dependencies
+<i class="fas  fa-sitemap fa-2x fa-pull-right "></i>
+- docker is too heavy
+- packrat vs. checkpoint
+- is drake an option?
+
+
+### Infrastructure
+<i class="fas  fa-server fa-2x fa-pull-right "></i>
+- RStudio Server
+- Git/Github
+
+
+---
+
+class: top, left
+
+# Tools
+<i class="fas  fa-times fa-3x fa-pull-right "></i>
+## Resistance
+
+
+&lt;br&gt;
+
+
+
+.center[&lt;IMG SRC="libs/wheel.png" height = "400" width = auto&gt;]
+
+
+
+
+---
+
+class: inverse, middle
+# 
+
+&lt;font color="white" size = "66"&gt; &lt;b&gt; It's the Culture, Stupid!  &lt;/b&gt;&lt;/font&gt; 
+
+<i class="fas  fa-users fa-5x fa-pull-right "></i>
+
+---
+
+class: top, left
+
+# Culture
+<i class="fas  fa-bullhorn fa-3x fa-pull-right "></i>
+## Show &amp; Tell
+
+&lt;br&gt;
+
+### In person: Internal Meetups
+- Solve problems
+- New R Packages
+- Ideas &amp; inspiration
+
+&lt;br&gt;
+
+### Virtual: Forum
+- How To
+- Code snippets
+- Q &amp; A
+
+---
+
+
+
+
+class: top, left
+
+# Culture
+<i class="fas  fa-users fa-3x fa-pull-right "></i>
+
+## Community
+
+
+
+&lt;font color=#009ee0 size = "20"&gt;  «The use of R in public administration» &lt;/font&gt; 
+
+.pull-left[&lt;IMG SRC=libs/RMeetup_agenda.PNG width = "420" height = auto&gt;]
+.pull-right[&lt;IMG SRC=libs/20171107_190044.jpg width = "420" height = auto&gt;
+&lt;br&gt;
+.right[https://statistikzh.github.io/RMeetup]]  
+
+
+
+
+
+---
+class: top, left
+
+# Culture
+## Skills
+
+
+&lt;br&gt;
+.center[<i class="fas  fa-user-ninja fa-5x "></i>]
+
+
+&lt;br&gt;
+
+.pull-left[
+<i class="fas  fa-plus fa-3x fa-pull-left "></i>
+  - functions
+  - Code review
+  - Code style guide]
+.pull-right[
+<i class="fas  fa-minus fa-3x fa-pull-left "></i>
+  - copy &amp; paste
+  - loooooong R scripts
+  - tool frictions]
+---
+
+
+class: inverse, center
+
+
+<i class="fas  fa-road fa-5x "></i>
+
+&lt;br&gt;
+
+.center[
+&lt;!-- &lt;i class="fas fa-road", size = 9&gt;&lt;/i&gt; --&gt;
+
+&lt;!-- &lt;br&gt; --&gt;
+
+&lt;font color=white size = "20"&gt; &lt;b&gt;  Reproducibility &lt;/b&gt; &lt;/font&gt; 
+
+&lt;br&gt;
+
+&lt;font color=white size = "20"&gt; &lt;b&gt;  Cooperation &lt;/b&gt; &lt;/font&gt; 
+
+
+&lt;br&gt;
+
+&lt;font color=white size = "20"&gt; &lt;b&gt;  Pace setting &lt;/b&gt; &lt;/font&gt; ]
+
+
+
+
+---
+
+
+background-image: url("libs/sticker-01.png")
+background-position: bottom right
+background-size:30%
+
+class: top, left
+
+<i class="fas  fa-comments fa-5x fa-pull-right "></i>
+
+&lt;font color=#009ee0 size = "48"&gt; &lt;b&gt; Your experiences? 
+&lt;br&gt;
+&lt;br&gt; Thanks! &lt;/b&gt;&lt;/font&gt; 
+
+&lt;br&gt;
+&lt;br&gt;
+
+Andrea Schnell   
+[andrea.schnell@statistik.ji.zh.ch](mailto:andrea.schnell@statistik.ji.zh.ch)  
+
+<i class="fab  fa-twitter fa-2x "></i> &lt;a href="https://twitter.com/statistik_zh?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false"&gt;@schnllr&lt;/a&gt;&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+<i class="fab  fa-github fa-2x "></i> https://schnllr.github.io/eRum  
+
+&lt;!-- &lt;br&gt; --&gt;
+&lt;!-- Statistical Office Canton of Zurich   --&gt;
+
+&lt;!-- <i class="fab  fa-twitter "></i> &lt;a href="https://twitter.com/statistik_zh?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false"&gt;@statistik_zh&lt;/a&gt;&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt; --&gt;
+
+
+
+&lt;br&gt;
+&lt;small&gt;Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).&lt;/small&gt;
+
+
+&lt;!-- .right[&lt;IMG SRC="libs/sticker-01.png" width = auto height = "150"&gt;] --&gt;
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"self_contained": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();
+setInterval(function() {slideshow.gotoNextSlide();}, 20000);</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
