@@ -16,39 +16,39 @@ h1 {
   font-weight: bold;
   font-size: 36pt;
   padding-top: -100px;
-  margin-top: -100px;
-  line-height: 0.3em;
-  color:  #009ee0;
+  margin-top: 50px;
+  line-height: 1em;
+  color:  #268BCC;
 }
 
 h2 {
   font-family:'helvetica', 'Yanone Kaffeesatz';
   font-weight: bold;
-  font-size: 30pt;
-  line-height: 0.2em;
+  font-size: 20pt;
+  line-height: 0.5em;
 }
 
 h3 {
   font-family: 'helvetica','Yanone Kaffeesatz';
   font-weight: normal;
-  color:  #009ee0;
-  font-size: 22pt;
+  color:  #268BCC;
+  font-size: 18pt;
 }
 
 bullets {font-family: 'helvetica','Lucida Console';
     display: inline-block;
     line-height: 2em;
     padding-top: 2em;
-    font-size: 25pt;
+    font-size: 18pt;
     font-weight: normal;
     color: black;
 }
 
 
 a, a > code {
-  color: #009ee0;
+  color: #268BCC;
   text-decoration: none;
-  font-size: 15pt;
+  font-size: 18pt;
 }
 
 .remark-slide-content { 
@@ -68,7 +68,7 @@ a, a > code {
 
 .remark-slide-number {
     font-size: 10pt;
-  color: #009ee0; 
+  color: #268BCC; 
   opacity: 1;  } 
 
 
@@ -85,7 +85,7 @@ a, a > code {
 
 
 .inverse {
-  background-color: #009ee0;
+  background-color: #268BCC;
   color: white;
   /*text-shadow: 0 0 10px #333;*/
   text-decoration: none;
@@ -93,7 +93,6 @@ a, a > code {
 
 .inverse h1, .inverse h2, .inverse h3 {
   color: white;
-  line-height: 1.0em;
 }
 
 
@@ -101,10 +100,10 @@ a, a > code {
 
 .title-slide {
   background-image: url("sticker-01.png");
-  background-position: top right;
-  background-size: 30%;
+  background-position: 90% 10%;
+  background-size: 25%;
   background-color: white;
-  color: #009ee0;
+  color: #268BCC;
   
 }
 
@@ -114,8 +113,9 @@ a, a > code {
 
 
 .title-slide h1 {
-  color: #009ee0;  
+  color: #268BCC;  
   text-shadow: none;
+  font-size: 48pt;
   line-height: 1em;
   text-align: left;
   margin-top: 2500px;
@@ -123,7 +123,7 @@ a, a > code {
 }
 
 .title-slide h2 {
-  color: #009ee0; 
+  color: #268BCC; 
   text-shadow: none;
   line-height: 1em;
   text-align: left;
@@ -179,9 +179,9 @@ table {
   border-top: 1px solid #666;
   border-bottom: 1px solid #666;
 }
-table thead th { border-bottom: 1px solid #ddd; }
+table thead th { border-bottom: 1px solid #bfbfbf; }
 th, td { padding: 5px; }
-thead, tfoot, tr:nth-child(even) { background: #eee }
+thead, tfoot, tr:nth-child(even) { background: #bfbfbf }
 
 @page { margin: 0; }
 @media print {
