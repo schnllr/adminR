@@ -46,7 +46,7 @@ str(adminr_members$resource)
 # City
 ```{r}
 adminr_members %>% 
-  inner_join(., adminr_guests, by = c('id' = 'member_id')) %>% 
+  left_join(., adminr_guests, by = c('id' = 'member_id')) %>% 
   group_by(city, response) %>% 
   tally() %>% 
   ungroup() %>% 
@@ -62,7 +62,7 @@ adminr_members %>%
 ```{r}
 library(stringr)
 library(reshape2)
-library(statR)
+# library(statR)
 
 
 
@@ -78,31 +78,84 @@ gender_guess <- vornamen %>%
   select(name, prob_female)
   
   
-  melt(id ="name") %>% 
-  group_by(name) %>% 
-  mutate(tot = sum(value, na.rm = T),
-         n_female = value[variable == "female"],
-         n_male = value[variable == "male"]) %>% 
-  # mutate(typ = ifelse(tot == n_female , "female",
-  #                     ifelse(tot == n_male, "male", "both"))) %>% 
-  mutate(prob_female = n_female/tot) %>% 
-  ungroup() %>% 
-  filter(variable == "female")
+  # melt(id ="name") %>% 
+  # group_by(name) %>% 
+  # mutate(tot = sum(value, na.rm = T),
+  #        n_female = value[variable == "female"],
+  #        n_male = value[variable == "male"]) %>% 
+  # # mutate(typ = ifelse(tot == n_female , "female",
+  # #                     ifelse(tot == n_male, "male", "both"))) %>% 
+  # mutate(prob_female = n_female/tot) %>% 
+  # ungroup() %>% 
+  # filter(variable == "female")
 
 gender <- adminr_guests %>% 
   mutate(name = sub("\\s.*","",member_name)) %>% 
   left_join(., gender_guess, by = c('name' = 'name')) %>% 
   mutate(gender = ifelse(prob_female >= 0.5, "female", "male"))
 
+gender_freq <- gender %>% 
+  group_by(name, gender) %>% 
+  summarise(n = n()) %>% 
+  ungroup()
+
+
 gender %>% 
   ggplot(., aes(x = gender, fill = gender))+
   geom_bar()
 
+
+# wordcloud::wordcloud(gender_freq$name,freq = gender_freq$n, min.freq = 1)
 
 ```
 
 # Answers
 ```{r}
 
+library(purrr)
+library(repurrrsive)
+
+mem_list <- adminr_members$resource %>% unlist(.$group_profile) %>% data_frame() %>% select(group_profile.answers.answer)
+names(mem_list)
+
+
+%>% filter(id == 189064954)
+
+
+
+adminr_members$resource[[91]]$group_profile$answers[[1]]$answer
+
+adminr_members$resource[[91]]$group_profile$answers[[2]]$answer
+
+
+str(adminr_members$resource[1])
+
+adminr_members$resource[[1]]$group_profile$answers[[1]]$answer
+
+lauf <- seq(n_members)
+
+data_frame(id = adminr_members$resource[[1]]$id, 
+           answer1 = adminr_members$resource[[1]]$group_profile$answers[[1]]$answer,
+           answer2 = adminr_members$resource[[1]]$group_profile$answers[[2]]$answer)
+
+```
+
+```{r}
+map(got_chars[1:3], "name")
+
+map_dfr(adminr_members$resource[1:3], extract, c("id", "name"))
+
+t_id <- map(adminr_members$resource[1:3], extract, c("id", "name", "group_profile"))
+
+t_group_profile <- map(adminr_members$resource[1:3], "group_profile")
+
+t_group_profile[[1:3]]$answers[[2]]$answer
+
+t_answers <- map(t_group_profile[1:3], "answers")
+
+map(t_answers[1:3], "answer[1]")
+
+
+adminr_members$resource[1:3]$group_profile$answers
 ```
 
