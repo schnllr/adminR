@@ -1,7 +1,7 @@
 ---
 title: "adminR"
 subtitle: "R in Official Statistics"
-date: "`September 2018`"
+date: "`First Meetup: 20. September 2018`"
 output:
   xaringan::moon_reader:
     css: libs/adminr_style.css
@@ -18,18 +18,17 @@ options(htmltools.dir.version = FALSE)
 source("libs/render_toc.R")
 ```
 
-class: inverse
+
 
 # Programm
 
 - <font > <b> adminR</b></font>
 
-
 - <font > <b> R im Ressort Konjunktur des SECO</b></font>, Ronald Indergand, Staatssekretariat für Wirtschaft
 
 - <font > <b> Bevölkerungsszenarien für die Stadt Zürich - Implementierung und Sensitivitätsanalyse in der Softwareumgebung R</b></font>, Andreas Papritz und Klemens Rosin, Statistik Stadt Zürich
 
-- <font > <b> Data Cubes mit R erstellen</b></font>, Sandro Petrillo Burri, Statistik Tessin
+- <font > <b> Data Cubes mit R erstellen</b></font>, Sandro Petrillo, Statistik Tessin
 
 - <font > <b> Apéro</b></font>
 
