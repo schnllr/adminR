@@ -3,14 +3,14 @@
   <head>
     <title>adminR</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="libs\adminr_style.css" type="text/css" />
+    <link rel="stylesheet" href="libs/adminr_style.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
 # adminR
-## R in Swiss Official Statistics
+## R in Official Statistics
 ### <code>September 2018</code>
 
 ---
@@ -18,30 +18,6 @@ class: center, middle, inverse, title-slide
 
 
 
-
-background-image: url("libs/hex_rstats.png")  
-background-position: 90% 90%
-background-size: 25%
-class:  left, top, inverse
-
-# adminR
-
-- Setup
-- Corporate Design Toolbox
-- Schulungen
-- Präsentationen
-- Projekte
-- R@STAT
-- Anlässe
-
-
----
-
-# Wer sind wir
-
-
-&lt;IMG SRC=libs/ronald.jpeg width = "200" height = auto&gt;&lt;IMG SRC=libs/andrea.jpeg width = "200" height = auto&gt;&lt;IMG SRC=libs/christoph.png width = "200" height = auto&gt;
----
 
 # Programm
 
@@ -60,10 +36,84 @@ class:  left, top, inverse
 
 
 
-background-image: url(https://media.giphy.com/media/11sBLVxNs7v6WA/giphy.gif)
-background-position: 50% 50%
-background-size: 100%
-class: inverse
+### Was
+- Halbjährliches Treffen irgendwo in der Schweiz, früh abends unter der Woche und informell.
+
+- Möglichkeit zum Austausch mit anderen UseRn in der öffentlichen Verwaltung und verwandten Institutionen.
+
+- Methodische Aspekte stehen im Vordergrund. Wie wird R eingesetzt, für welche Aufgaben, welche Packages, wie sieht der Workflow aus, etc.?
+
+--
+
+### Wie
+
+- Themenvorträge (20 Min.) 
+- Lightning Talks (10 Min.): Institutionen stellen vor, wie sie R anwenden  
+
+Sprache: frei  
+
+
+
+---
+
+### Wer
+
+Mitarbeitende der Öffentlichen Verwaltung oder verwandten Institutionen, die mit Daten der Öffentlichen Statistik arbeiten und dazu die Software R verwenden.
+
+--
+
+### Organisationsteam
+
+- Ronald Indergand, Staatssekretariat für Wirtschaft
+- Christoph Sax, cynkra GmbH
+- Andrea Schnell, Statistisches Amt Kanton Zürich
+
+Das  Organisationsteam sucht Gastgeber und Vortragende. Die Gastgeber stellen den Raum und die Verpflegung zur Verfügung.
+
+---
+
+# UseRs
+
+### Woher?
+&lt;IMG SRC=libs/city-1.png width = "700" height = auto&gt;
+
+---
+
+### Wer?
+&lt;IMG SRC=libs/gender-1.png width = "700" height = auto&gt;
+
+
+---
+
+
+### How is your work related to R and official statistics?
+
+
+&lt;IMG SRC=libs/wordcloud.png width = "600" height = auto&gt;
+
+---
+
+
+### Do you work for a public institution?
+&lt;IMG SRC=libs/answer2-1.png width = "700" height = auto&gt;
+
+
+---
+
+
+
+
+
+background-image: url("libs/logo.png")  
+background-position: 50% 10%
+background-size: 40%
+class:  bottom, center, inverse
+
+&lt;br&gt;
+
+https://www.meetup.com/adminr/
+
+https://github.com/swiss-adminR
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
@@ -81,12 +131,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   d.head.appendChild(s);
 })();</script>
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
   }
-});
+})();
 </script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

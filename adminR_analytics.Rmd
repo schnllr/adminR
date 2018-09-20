@@ -1,7 +1,17 @@
 ---
 title: "adminrR Meetup Analytics"
 author: "Andrea Schnell"
+output:
+  html_document:
+    self_contained: false
 ---
+
+```{r setup}
+
+knitr::opts_chunk$set(fig.width=6,  echo = FALSE, dev = 'png')
+
+
+```
 
 
 ```{r}
@@ -19,47 +29,51 @@ adminr_members <- get_members("adminR")
 
 adminr_guests <- get_event_rsvps("adminR", "253930551") 
 
-%>% filter(response == "yes")
+# %>% filter(response == "yes")
 
 n_members <- adminr_members$id
-
-purrr::map()
-
-
-mem_list <- adminr_members$resource %>% unlist(.$group_profile) %>% data_frame() %>% select(group_profile.answers.answer)
-names(mem_list)
-
-
-%>% filter(id == 189064954)
-
-
-
-adminr_members$resource[[91]]$group_profile$answers[[1]]$answer
-
-adminr_members$resource[[91]]$group_profile$answers[[2]]$answer
+# 
+# purrr::map()
+# 
+# 
+# mem_list <- adminr_members$resource %>% unlist(.$group_profile) %>% data_frame() %>% select(group_profile.answers.answer)
+# names(mem_list)
+# 
+# 
+# %>% filter(id == 189064954)
 
 
-str(adminr_members$resource)
+# 
+# adminr_members$resource[[91]]$group_profile$answers[[1]]$answer
+# 
+# adminr_members$resource[[91]]$group_profile$answers[[2]]$answer
+# 
+# 
+# str(adminr_members$resource)
 ```
 
 
 # City
-```{r}
+```{r city, fig.width=8}
 adminr_members %>% 
   left_join(., adminr_guests, by = c('id' = 'member_id')) %>% 
+  filter(response == "yes") %>% 
   group_by(city, response) %>% 
   tally() %>% 
   ungroup() %>% 
   mutate(city = fct_reorder(city, n)) %>% 
   ggplot(., aes(x = city, y = n, fill = response)) +
-  geom_bar(stat = "identity")+
-  coord_flip()
+  geom_bar(stat = "identity", show.legend = FALSE)+
+  scale_fill_manual(values = "grey50")+
+  coord_flip()+
+  theme_minimal(base_size = 18)+
+  labs(x = NULL, y = NULL, fill = NULL)
 
 
 ```
 
 # Gender
-```{r}
+```{r gender, fig.width=8}
 library(stringr)
 library(reshape2)
 # library(statR)
@@ -76,23 +90,11 @@ gender_guess <- vornamen %>%
   mutate(tot = sum(male, female, na.rm = T)) %>% 
   mutate(prob_female = ifelse(is.na(female) == F, female/tot, male/tot)) %>% 
   select(name, prob_female)
-  
-  
-  # melt(id ="name") %>% 
-  # group_by(name) %>% 
-  # mutate(tot = sum(value, na.rm = T),
-  #        n_female = value[variable == "female"],
-  #        n_male = value[variable == "male"]) %>% 
-  # # mutate(typ = ifelse(tot == n_female , "female",
-  # #                     ifelse(tot == n_male, "male", "both"))) %>% 
-  # mutate(prob_female = n_female/tot) %>% 
-  # ungroup() %>% 
-  # filter(variable == "female")
 
 gender <- adminr_guests %>% 
   mutate(name = sub("\\s.*","",member_name)) %>% 
   left_join(., gender_guess, by = c('name' = 'name')) %>% 
-  mutate(gender = ifelse(prob_female >= 0.5, "female", "male"))
+  mutate(gender = ifelse(prob_female >= 0.5, "Frau", "Mann"))
 
 gender_freq <- gender %>% 
   group_by(name, gender) %>% 
@@ -102,7 +104,10 @@ gender_freq <- gender %>%
 
 gender %>% 
   ggplot(., aes(x = gender, fill = gender))+
-  geom_bar()
+  geom_bar()+
+  scale_fill_manual(values = c( "#F8766D", "#00BFC4"), na.value = "grey50")+
+  labs(x = NULL, y = NULL, fill = NULL)+
+  theme_minimal(base_size = 18)
 
 
 # wordcloud::wordcloud(gender_freq$name,freq = gender_freq$n, min.freq = 1)
@@ -115,15 +120,7 @@ gender %>%
 library(purrr)
 library(repurrrsive)
 
-mem_list <- adminr_members$resource %>% unlist(.$group_profile) %>% data_frame() %>% select(group_profile.answers.answer)
-names(mem_list)
-
-
-%>% filter(id == 189064954)
-
-
-
-
+ids <- map_dfr(adminr_members$resource, extract, c("id", "name"))
 
 ttt <- data.frame(id = c(rep(NA, length(n_members))) , answer1 = c(rep(NA, length(n_members))), answer2 = c(rep(NA, length(n_members))))
 
@@ -151,32 +148,52 @@ ids <- left_join(ids, ttt, by = 'id')
 
 ```
 
-```{r}
-map(got_chars[1:3], "name")
+# Answer 1
+```{r answer1, fig.width=8, fig.height=8}
+"How is your work related to R and official statistics?"
 
-ids <- map_dfr(adminr_members$resource, extract, c("id", "name"))
+# wordcloud::wordcloud(gender_freq$name,freq = gender_freq$n, min.freq = 1)
 
-t_id <- map(adminr_members$resource[1:3], extract, c("id", "name", "group_profile"))
+tab1 <- ttt %>% 
+  mutate_at(vars(answer1, answer2), funs(tolower(.))) %>% 
+  unnest_tokens(word, answer1) %>% 
+  anti_join(get_stopwords()) %>% 
+  count(word, sort = TRUE) %>% 
+  filter(is.na(word)==F) %>% 
+  mutate(word = toupper(word))
 
-t_group_profile <- map(adminr_members$resource[1:3], "group_profile")
-
-t_group_profile[[1:3]]$answers[[2]]$answer
-
-t_answers <- map(t_group_profile[1:3], "answers")
-
-map(t_answers[1:3], "answer[1]")
-
-
-adminr_members$resource[1:3]$group_profile$answers
-
-t <- adminr_members %>% unnest(resource)
-
-
-data <- adminr_members %>% select(resource)
-
-t <- data %>% unnest(resource)
-
-t %>% filter(grepl("answer", resource))
+# layout(matrix(c(1, 2), nrow=2), heights=c(1, 4))
+# par(oma=c(0, 0, 0, 0))
+# par(mar=c(0, 0, 0, 0))
+par(mar=rep(0, 4))
+plot.new()
+# text(x=0.5, y=0.5, "How is your work related to R and official statistics?")
+# wordcloud(x, main="Title")
+wordcloud::wordcloud(tab1$word,freq = tab1$n, min.freq = 3)
 
 ```
+
+
+# Answer2
+```{r answer2, fig.width=8}
+tab2 <- ttt %>% 
+  mutate_at(vars(answer1, answer2), funs(tolower(.))) %>% 
+  mutate(public = ifelse(is.na(answer2), NA,
+                      ifelse(grepl("yes|ja|ou|kof|epfl|bfs|seco|statistik|snb|swiss national bank|ofs|university|universität|hochschule|bundesamt|federal|amt|fédéral", answer2), "ja", "nein")))
+
+
+tab2 %>% group_by(public) %>% 
+  tally() %>% 
+  ungroup() %>% 
+  ggplot(., aes(x = public, y = n, fill = public))+
+  geom_bar(stat = "identity")+
+  scale_fill_manual(values = c("#00BFC4", "#F8766D"), na.value = "grey50")+
+  # labs(title = "Do you work for a public institution?")+
+  labs(x = NULL, y = NULL, fill = NULL)+
+  theme_minimal(base_size = 18)
+
+# ggsave("answer2.png")
+```
+
+
 

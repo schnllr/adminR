@@ -46,9 +46,9 @@ bullets {font-family: 'helvetica','Lucida Console';
 
 
 a, a > code {
-  color: #268BCC;
+  color: white;
   text-decoration: none;
-  font-size: 18pt;
+  font-size: 24pt;
 }
 
 .remark-slide-content { 
