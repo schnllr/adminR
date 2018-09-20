@@ -1,5 +1,5 @@
 ---
-title: "adminrR Meetup Analytics"
+title: "adminR Meetup Analytics"
 author: "Andrea Schnell"
 output:
   html_document:
@@ -54,7 +54,7 @@ n_members <- adminr_members$id
 
 
 # City
-```{r city, fig.width=8}
+```{r city}
 adminr_members %>% 
   left_join(., adminr_guests, by = c('id' = 'member_id')) %>% 
   filter(response == "yes") %>% 
@@ -73,7 +73,7 @@ adminr_members %>%
 ```
 
 # Gender
-```{r gender, fig.width=8}
+```{r gender}
 library(stringr)
 library(reshape2)
 # library(statR)
@@ -92,6 +92,7 @@ gender_guess <- vornamen %>%
   select(name, prob_female)
 
 gender <- adminr_guests %>% 
+    filter(response == "yes") %>% 
   mutate(name = sub("\\s.*","",member_name)) %>% 
   left_join(., gender_guess, by = c('name' = 'name')) %>% 
   mutate(gender = ifelse(prob_female >= 0.5, "Frau", "Mann"))
@@ -107,7 +108,8 @@ gender %>%
   geom_bar()+
   scale_fill_manual(values = c( "#F8766D", "#00BFC4"), na.value = "grey50")+
   labs(x = NULL, y = NULL, fill = NULL)+
-  theme_minimal(base_size = 18)
+  theme_minimal(base_size = 18) +
+  theme(legend.position = "none")
 
 
 # wordcloud::wordcloud(gender_freq$name,freq = gender_freq$n, min.freq = 1)
@@ -152,9 +154,13 @@ ids <- left_join(ids, ttt, by = 'id')
 ```{r answer1, fig.width=8, fig.height=8}
 "How is your work related to R and official statistics?"
 
+# library(wordcloud)
+
 # wordcloud::wordcloud(gender_freq$name,freq = gender_freq$n, min.freq = 1)
 
 tab1 <- ttt %>% 
+  # left_join(., adminr_guests %>% 
+  #   filter(response == "yes"), by = c('id' = 'member_id')) %>% 
   mutate_at(vars(answer1, answer2), funs(tolower(.))) %>% 
   unnest_tokens(word, answer1) %>% 
   anti_join(get_stopwords()) %>% 
@@ -175,8 +181,10 @@ wordcloud::wordcloud(tab1$word,freq = tab1$n, min.freq = 3)
 
 
 # Answer2
-```{r answer2, fig.width=8}
+```{r answer2}
 tab2 <- ttt %>% 
+    left_join(., adminr_guests %>%
+    filter(response == "yes"), by = c('id' = 'member_id')) %>%
   mutate_at(vars(answer1, answer2), funs(tolower(.))) %>% 
   mutate(public = ifelse(is.na(answer2), NA,
                       ifelse(grepl("yes|ja|ou|kof|epfl|bfs|seco|statistik|snb|swiss national bank|ofs|university|universität|hochschule|bundesamt|federal|amt|fédéral", answer2), "ja", "nein")))
@@ -190,7 +198,8 @@ tab2 %>% group_by(public) %>%
   scale_fill_manual(values = c("#00BFC4", "#F8766D"), na.value = "grey50")+
   # labs(title = "Do you work for a public institution?")+
   labs(x = NULL, y = NULL, fill = NULL)+
-  theme_minimal(base_size = 18)
+  theme_minimal(base_size = 18)+
+      theme(legend.position = "none")
 
 # ggsave("answer2.png")
 ```

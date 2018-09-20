@@ -74,29 +74,36 @@ Das  Organisationsteam sucht Gastgeber und Vortragende. Die Gastgeber stellen de
 
 # UseRs
 
+.pull-left[
 ### Woher?
 <IMG SRC=libs/city-1.png width = "700" height = auto>
+]
 
----
+--
 
+.pull-right[
 ### Wer?
 <IMG SRC=libs/gender-1.png width = "700" height = auto>
-
+]
 
 ---
 
-
+.pull-left[
 ### How is your work related to R and official statistics?
 
-
 <IMG SRC=libs/wordcloud.png width = "600" height = auto>
+]
 
----
+--
 
+.pull-right[
 
 ### Do you work for a public institution?
+<br>
+<br>
 <IMG SRC=libs/answer2-1.png width = "700" height = auto>
 
+]
 
 ---
 

@@ -3,7 +3,7 @@
   <head>
     <title>adminR</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="libs/adminr_style.css" type="text/css" />
+    <link rel="stylesheet" href="libs\adminr_style.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -74,29 +74,36 @@ Das  Organisationsteam sucht Gastgeber und Vortragende. Die Gastgeber stellen de
 
 # UseRs
 
+.pull-left[
 ### Woher?
 &lt;IMG SRC=libs/city-1.png width = "700" height = auto&gt;
+]
 
----
+--
 
+.pull-right[
 ### Wer?
 &lt;IMG SRC=libs/gender-1.png width = "700" height = auto&gt;
-
+]
 
 ---
 
-
+.pull-left[
 ### How is your work related to R and official statistics?
 
-
 &lt;IMG SRC=libs/wordcloud.png width = "600" height = auto&gt;
+]
 
----
+--
 
+.pull-right[
 
 ### Do you work for a public institution?
+&lt;br&gt;
+&lt;br&gt;
 &lt;IMG SRC=libs/answer2-1.png width = "700" height = auto&gt;
 
+]
 
 ---
 
@@ -131,23 +138,12 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   d.head.appendChild(s);
 })();</script>
 
-<script>
-(function() {
-  var i, text, code, codes = document.getElementsByTagName('code');
-  for (i = 0; i < codes.length;) {
-    code = codes[i];
-    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
-      text = code.textContent;
-      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
-          /^\$\$(.|\s)+\$\$$/.test(text) ||
-          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
-        code.outerHTML = code.innerHTML;  // remove <code></code>
-        continue;
-      }
-    }
-    i++;
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
   }
-})();
+});
 </script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
