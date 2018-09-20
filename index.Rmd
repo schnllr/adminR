@@ -18,13 +18,14 @@ options(htmltools.dir.version = FALSE)
 source("libs/render_toc.R")
 ```
 
+class: inverse
 
 # Programm
 
 - <font > <b> adminR</b></font>
 
 
-- <font > <b> R in der Quartalsschätzung des Bruttoinlandsprodukts</b></font>, Ronald Indergand, Staatssekretariat für Wirtschaft
+- <font > <b> R im Ressort Konjunktur des SECO</b></font>, Ronald Indergand, Staatssekretariat für Wirtschaft
 
 - <font > <b> Bevölkerungsszenarien für die Stadt Zürich - Implementierung und Sensitivitätsanalyse in der Softwareumgebung R</b></font>, Andreas Papritz und Klemens Rosin, Statistik Stadt Zürich
 
@@ -99,7 +100,7 @@ Das  Organisationsteam sucht Gastgeber und Vortragende. Die Gastgeber stellen de
 .pull-right[
 
 ### Do you work for a public institution?
-<br>
+
 <br>
 <IMG SRC=libs/answer2-1.png width = "700" height = auto>
 

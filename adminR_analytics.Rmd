@@ -163,7 +163,9 @@ tab1 <- ttt %>%
   #   filter(response == "yes"), by = c('id' = 'member_id')) %>% 
   mutate_at(vars(answer1, answer2), funs(tolower(.))) %>% 
   unnest_tokens(word, answer1) %>% 
-  anti_join(get_stopwords()) %>% 
+  anti_join(get_stopwords(language = "en")) %>% 
+  anti_join(get_stopwords(language = "de")) %>% 
+  anti_join(get_stopwords(language = "fr")) %>% 
   count(word, sort = TRUE) %>% 
   filter(is.na(word)==F) %>% 
   mutate(word = toupper(word))
