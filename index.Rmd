@@ -122,6 +122,8 @@ class:  bottom, center, inverse
 
 `r icon::fa_github(size = 2)`  https://github.com/swiss-adminR
 
+`r icon::fa_twitter(size = 2)`  https://twitter.com/adminR3
+
 <br>
 
 `r icon::fa_envelope(size = 2)`
