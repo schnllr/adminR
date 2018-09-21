@@ -3,7 +3,8 @@
   <head>
     <title>adminR</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="libs\adminr_style.css" type="text/css" />
+    <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="libs/adminr_style.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -64,7 +65,7 @@ Mitarbeitende der Öffentlichen Verwaltung oder verwandten Institutionen, die mi
 
 ### Organisationsteam
 
-- Ronald Indergand, Staatssekretariat für Wirtschaft
+- Ronald Indergand, Staatssekretariat für Wirtschaft 
 - Christoph Sax, cynkra GmbH
 - Andrea Schnell, Statistisches Amt Kanton Zürich
 
@@ -113,14 +114,20 @@ Das  Organisationsteam sucht Gastgeber und Vortragende. Die Gastgeber stellen de
 
 background-image: url("libs/logo.png")  
 background-position: 50% 10%
-background-size: 40%
+background-size: 30%
 class:  bottom, center, inverse
 
 &lt;br&gt;
 
-https://www.meetup.com/adminr/
+<i class="fab  fa-meetup fa-2x "></i>  https://www.meetup.com/adminr/
 
-https://github.com/swiss-adminR
+<i class="fab  fa-github fa-2x "></i>  https://github.com/swiss-adminR
+
+&lt;br&gt;
+
+<i class="fas  fa-envelope fa-2x "></i>
+
+[Ronald](mailto:ronald.indergand@seco.admin.ch), [Andrea](mailto:christoph@cynkra.com), [Christoph](mailto:andrea.schnell@statistik.ji.zh.ch)
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
@@ -138,12 +145,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   d.head.appendChild(s);
 })();</script>
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
   }
-});
+})();
 </script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
