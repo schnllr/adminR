@@ -35,7 +35,7 @@ source("libs/render_toc.R")
 ---
 
 
-
+# adminR
 ### Was
 - Halbjährliches Treffen irgendwo in der Schweiz, früh abends unter der Woche und informell.
 
@@ -43,7 +43,7 @@ source("libs/render_toc.R")
 
 - Methodische Aspekte stehen im Vordergrund. Wie wird R eingesetzt, für welche Aufgaben, welche Packages, wie sieht der Workflow aus, etc.?
 
---
+
 
 ### Wie
 
@@ -56,11 +56,11 @@ Sprache: frei
 
 ---
 
+# adminR
 ### Wer
 
 Mitarbeitende der Öffentlichen Verwaltung oder verwandten Institutionen, die mit Daten der Öffentlichen Statistik arbeiten und dazu die Software R verwenden.
 
---
 
 ### Organisationsteam
 
@@ -79,7 +79,7 @@ Das  Organisationsteam sucht Gastgeber und Vortragende. Die Gastgeber stellen de
 <IMG SRC=libs/city-1.png width = "700" height = auto>
 ]
 
---
+
 
 .pull-right[
 ### Wer?
@@ -88,13 +88,13 @@ Das  Organisationsteam sucht Gastgeber und Vortragende. Die Gastgeber stellen de
 
 ---
 
+# UseRs
 .pull-left[
 ### How is your work related to R and official statistics?
 
 <IMG SRC=libs/wordcloud.png width = "600" height = auto>
 ]
 
---
 
 .pull-right[
 
