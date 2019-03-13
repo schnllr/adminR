@@ -24,11 +24,14 @@ source("libs/render_toc.R")
 
 - <font > <b> adminR</b></font>
 
-- <font > <b> Economic Statistics: R in Production Processes </b></font>, Matthias Bannert, KOF Swiss Economic Institute
+- <font > <b> Economic Statistics: R in Production Processes</b></font>, <br />
+Matthias Bannert, KOF Swiss Economic Institute
 
-- <font > <b> Change Prozess: R-Roadmap von Statistik Aargau</b></font>, Andrea R. Plüss, Jan Wunder, Statistik Aargau
+- <font > <b> Change Prozess: R-Roadmap von Statistik Aargau</b></font>, <br />
+Andrea R. Plüss, Jan Wunder, Statistik Aargau
 
-- <font > <b> Einsatz von R in der epidemiologischen Überwachung und Beurteilung von übertragbaren Krankheiten</b></font>, Damir Perisa, Bundesamt für Gesundheit
+- <font > <b> Einsatz von R in der epidemiologischen Überwachung und Beurteilung von übertragbaren Krankheiten</b></font>, <br />
+Damir Perisa, Bundesamt für Gesundheit
 
 - <font > <b> Apéro</b></font>
 
@@ -73,6 +76,8 @@ Das  Organisationsteam sucht Gastgeber und Vortragende. Die Gastgeber stellen de
 ---
 
 # UseRs
+
+### 40 UseR sind heute zum ersten Mal dabei
 
 .pull-left[
 ### Woher?

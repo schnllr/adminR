@@ -56,6 +56,26 @@ n_members <- adminr_members$id
 # str(adminr_members$resource)
 ```
 
+# Newbies
+```{r}
+adminr_guests %>% 
+  filter(response == "yes") %>% 
+  group_by(member_id, event) %>% 
+  summarise(anwesend = 1) %>% 
+  ungroup() %>% 
+  complete(member_id, event, fill = list(anwesend = 0)) %>% 
+  group_by(member_id) %>%  
+  arrange(member_id, desc(event)) %>% 
+  mutate(new = ifelse(first(anwesend) == 0 & last(anwesend)==1, 1, 0)) %>% 
+  ungroup() %>% 
+  filter(event == "March 2019") %>%
+  filter(anwesend == 1) %>% 
+  View()
+  summarise(new = sum(new))
+
+adminr_guests %>% select(member_id, event)
+```
+
 
 # City
 ```{r city}
