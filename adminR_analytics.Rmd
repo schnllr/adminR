@@ -27,8 +27,12 @@ urlname <- "adminR"
 
 adminr_members <- get_members("adminR")
 
-adminr_guests <- get_event_rsvps("adminR", "253930551") 
+adminr_guests <- get_event_rsvps("adminR", "253930551") %>% # sept 2018
+                mutate(event = "Sept 2018") %>% 
+  bind_rows(get_event_rsvps("adminR", "258383370") %>% # march 2019 
+                mutate(event = "March 2019"))
 
+# adminr_guests <- get_event_rsvps("adminR", "258383370")
 # %>% filter(response == "yes")
 
 n_members <- adminr_members$id
@@ -58,16 +62,21 @@ n_members <- adminr_members$id
 adminr_members %>% 
   left_join(., adminr_guests, by = c('id' = 'member_id')) %>% 
   filter(response == "yes") %>% 
-  group_by(city, response) %>% 
+  group_by(city, event) %>% 
   tally() %>% 
   ungroup() %>% 
+  filter(n > 1) %>% 
+  complete(city, event, fill = list(n = 0)) %>% 
   mutate(city = fct_reorder(city, n)) %>% 
-  ggplot(., aes(x = city, y = n, fill = response)) +
-  geom_bar(stat = "identity", show.legend = FALSE)+
-  scale_fill_manual(values = "grey50")+
+  ggplot(., aes(x = city, y = n, fill = event)) +
+  geom_bar(stat = "identity",  position = "dodge")+
+  # facet_wrap(~event)+
+  # scale_fill_manual(values = "grey50")+
   coord_flip()+
   theme_minimal(base_size = 18)+
-  labs(x = NULL, y = NULL, fill = NULL)
+  labs(x = NULL, y = NULL, fill = NULL)+
+  theme(legend.position = "bottom")+
+  guides(fill = guide_legend(rev = T))
 
 
 ```
@@ -98,7 +107,7 @@ gender <- adminr_guests %>%
   mutate(gender = ifelse(prob_female >= 0.5, "Frau", "Mann"))
 
 gender_freq <- gender %>% 
-  group_by(name, gender) %>% 
+  group_by(name, gender, event) %>% 
   summarise(n = n()) %>% 
   ungroup()
 
@@ -108,6 +117,7 @@ gender %>%
   geom_bar()+
   scale_fill_manual(values = c( "#F8766D", "#00BFC4"), na.value = "grey50")+
   labs(x = NULL, y = NULL, fill = NULL)+
+  facet_wrap(~event)+
   theme_minimal(base_size = 18) +
   theme(legend.position = "none")
 
@@ -159,8 +169,8 @@ ids <- left_join(ids, ttt, by = 'id')
 # wordcloud::wordcloud(gender_freq$name,freq = gender_freq$n, min.freq = 1)
 
 tab1 <- ttt %>% 
-  # left_join(., adminr_guests %>% 
-  #   filter(response == "yes"), by = c('id' = 'member_id')) %>% 
+    inner_join(., adminr_guests %>%
+    filter(response == "yes" & event == "March 2019"), by = c('id' = 'member_id')) %>%
   mutate_at(vars(answer1, answer2), funs(tolower(.))) %>% 
   unnest_tokens(word, answer1) %>% 
   anti_join(get_stopwords(language = "en")) %>% 
@@ -185,8 +195,8 @@ wordcloud::wordcloud(tab1$word,freq = tab1$n, min.freq = 3)
 # Answer2
 ```{r answer2}
 tab2 <- ttt %>% 
-    left_join(., adminr_guests %>%
-    filter(response == "yes"), by = c('id' = 'member_id')) %>%
+    inner_join(., adminr_guests %>%
+    filter(response == "yes" & event == "March 2019"), by = c('id' = 'member_id')) %>%
   mutate_at(vars(answer1, answer2), funs(tolower(.))) %>% 
   mutate(public = ifelse(is.na(answer2), NA,
                       ifelse(grepl("yes|ja|ou|kof|epfl|bfs|seco|statistik|snb|swiss national bank|ofs|university|universität|hochschule|bundesamt|federal|amt|fédéral", answer2), "ja", "nein")))
