@@ -1,7 +1,7 @@
 ---
 title: "adminR"
 subtitle: "R in Official Statistics"
-date: "`Spring Meetup: 14. March 2019`"
+date: "`Spring Edition: 14. March 2019`"
 output:
   xaringan::moon_reader:
     css: libs/adminr_style.css
@@ -136,3 +136,15 @@ class:  bottom, center, inverse
 [Ronald](mailto:ronald.indergand@seco.admin.ch), [Christoph](mailto:christoph@cynkra.com), [Andrea](mailto:andrea.schnell@statistik.ji.zh.ch)
 
 
+
+---
+
+class:  inverse
+
+# Veranstaltungshinweis
+
+### Meetup Zurich R User Group
+
+Mittwoch, 3. April 2019 18.30 Uhr @ PartnerRe  
+
+[https://www.meetup.com/de-DE/Zurich-R-User-Group/](https://www.meetup.com/de-DE/Zurich-R-User-Group/)

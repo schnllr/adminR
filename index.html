@@ -4,7 +4,7 @@
     <title>adminR</title>
     <meta charset="utf-8">
     <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="libs/adminr_style.css" type="text/css" />
+    <link rel="stylesheet" href="libs\adminr_style.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -12,7 +12,7 @@ class: center, middle, inverse, title-slide
 
 # adminR
 ## R in Official Statistics
-### <code>Spring Meetup: 14. March 2019</code>
+### <code>Spring Edition: 14. March 2019</code>
 
 ---
 
@@ -135,6 +135,20 @@ class:  bottom, center, inverse
 <i class="fas  fa-envelope fa-2x "></i>
 
 [Ronald](mailto:ronald.indergand@seco.admin.ch), [Christoph](mailto:christoph@cynkra.com), [Andrea](mailto:andrea.schnell@statistik.ji.zh.ch)
+
+
+
+---
+
+class:  inverse
+
+# Veranstaltungshinweis
+
+### Meetup Zurich R User Group
+
+Mittwoch, 3. April 2019 18.30 Uhr @ PartnerRe  
+
+[https://www.meetup.com/de-DE/Zurich-R-User-Group/](https://www.meetup.com/de-DE/Zurich-R-User-Group/)
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
@@ -152,23 +166,12 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   d.head.appendChild(s);
 })();</script>
 
-<script>
-(function() {
-  var i, text, code, codes = document.getElementsByTagName('code');
-  for (i = 0; i < codes.length;) {
-    code = codes[i];
-    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
-      text = code.textContent;
-      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
-          /^\$\$(.|\s)+\$\$$/.test(text) ||
-          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
-        code.outerHTML = code.innerHTML;  // remove <code></code>
-        continue;
-      }
-    }
-    i++;
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
   }
-})();
+});
 </script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
