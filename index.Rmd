@@ -1,7 +1,7 @@
 ---
 title: "adminR"
 subtitle: "R in Official Statistics"
-date: "`Spring Edition: 14. March 2019`"
+date: "`Autumn Edition: 19. September 2019`"
 output:
   xaringan::moon_reader:
     css: libs/adminr_style.css
@@ -24,14 +24,17 @@ source("libs/render_toc.R")
 
 - <font > <b> adminR</b></font>
 
-- <font > <b> Economic Statistics: R in Production Processes</b></font>, <br />
-Matthias Bannert, KOF Swiss Economic Institute
+- <font > <b> R at the Statistical Office of the Canton of Fribourg</b></font>, <br />
+Reto Messikommer
 
-- <font > <b> Change Prozess: R-Roadmap von Statistik Aargau</b></font>, <br />
-Andrea R. Plüss, Jan Wunder, Statistik Aargau
+- <font > <b> Introducing the Group for Applied Statistics and Modeling</b></font>, <br />
+Laurent Donzé
 
-- <font > <b> Einsatz von R in der epidemiologischen Überwachung und Beurteilung von übertragbaren Krankheiten</b></font>, <br />
-Damir Perisa, Bundesamt für Gesundheit
+- <font > <b> Demographical Long-Term Financing of the Swiss Social Insurances</b></font>, <br />
+Layal Christine Lettry
+
+- <font > <b> Handling of spatial data with R at the Statistical Office of the Canton of Zurich</b></font>, <br />
+Katharina Kälin
 
 - <font > <b> Apéro</b></font>
 
@@ -73,47 +76,11 @@ Mitarbeitende der Öffentlichen Verwaltung oder verwandten Institutionen, die mi
 
 Das  Organisationsteam sucht Gastgeber und Vortragende. Die Gastgeber stellen den Raum und die Verpflegung zur Verfügung.
 
----
 
-# UseRs
-
-### 40 UseR sind heute zum ersten Mal dabei
-
-.pull-left[
-### Woher?
-<IMG SRC=libs/city-1.png width = "700" height = auto>
-]
-
-
-
-.pull-right[
-### Wer?
-<IMG SRC=libs/gender-1.png width = "700" height = auto>
-]
-
----
-
-# UseRs
-.pull-left[
-### How is your work related to R and official statistics?
-
-<IMG SRC=libs/wordcloud.png width = "600" height = auto>
-]
-
-
-.pull-right[
-
-### Do you work for a public institution?
-
-<br>
-<IMG SRC=libs/answer2-1.png width = "700" height = auto>
-
-]
-
----
 
 
 
+---
 
 
 background-image: url("libs/logo.png")  
@@ -137,14 +104,4 @@ class:  bottom, center, inverse
 
 
 
----
 
-class:  inverse
-
-# Veranstaltungshinweis
-
-### Meetup Zurich R User Group
-
-Mittwoch, 3. April 2019 18.30 Uhr @ PartnerRe  
-
-[https://www.meetup.com/de-DE/Zurich-R-User-Group/](https://www.meetup.com/de-DE/Zurich-R-User-Group/)
