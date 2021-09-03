@@ -80,22 +80,6 @@ Das  Organisationsteam sucht Gastgeber und Vortragende. Die Gastgeber stellen de
 ---
 
 
-### Bisherige Veranstaltungen
-
-- September 2018, SECO
-
-- Frühling 2019, KOF
-
-- Herbst 2019, Freiburg
-
-- Frühling 2021, online
-
-Slides aller Veranstaltungen hier: 
-<font > <color #1f65b7> https://github.com/swiss-adminR  </color></font>
-
-
----
-
 
 background-image: url("libs/logo.png")  
 background-position: 50% 10%
@@ -125,10 +109,7 @@ class:  center, middle, inverse
 # adminR Packages
 
 
-<font > <color #1f65b7> https://github.com/swiss-adminR/pkgs </color></font>
-
-
-
+[https://github.com/swiss-adminR/pkgs](https://github.com/swiss-adminR/pkgs)
 
 
 
