@@ -54,7 +54,7 @@ Matthias Bannert, KOF ETHZ
 ### Wie
 
 - Themenvorträge (20 Min.) 
-- Lightning Talks (10 Min.): Institutionen stellen vor, wie sie R anwenden  
+- Lightning Talks (10 Min.)
 
 Sprache: frei  
 
