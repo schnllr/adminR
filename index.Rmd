@@ -1,7 +1,7 @@
 ---
 title: "adminR"
-subtitle: "R in Official Statistics"
-date: "`Autumn Edition: 19. September 2019`"
+subtitle: "R in Official Statistics and Public Administration"
+date: "`Workshop Statistiktage, <br />6. September 2021`"
 output:
   xaringan::moon_reader:
     css: libs/adminr_style.css
@@ -14,29 +14,29 @@ output:
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
-
-source("libs/render_toc.R")
+# library("icon")
+# source("libs/render_toc.R")
 ```
 
 
 
 # Programm
 
-- <font > <b> adminR</b></font>
+- <font > <b> Introduction to adminR</b></font>
 
-- <font > <b> R at the Statistical Office of the Canton of Fribourg</b></font>, <br />
-Reto Messikommer
+- <font > <b> swissdd</b></font><br />
+Thomas Lo Russo, Statistisches Amt Kanton Zürich
 
-- <font > <b> Introducing the Group for Applied Statistics and Modeling</b></font>, <br />
-Laurent Donzé
+- <font > <b> staagBevproj</b></font> <br />
+Tina Cornioley, Statistik Aargau
 
-- <font > <b> Demographical Long-Term Financing of the Swiss Social Insurances</b></font>, <br />
-Layal Christine Lettry
+- <font > <b> MRMT</b></font> <br />
+Michele Rigamonti, Ufficio di statistica
 
-- <font > <b> Handling of spatial data with R at the Statistical Office of the Canton of Zurich</b></font>, <br />
-Katharina Kälin
+- <font > <b> kofdata </b></font> <br />
+Matthias Bannert, KOF ETHZ
 
-- <font > <b> Apéro</b></font>
+- <font > <b> End</b></font>
 
 ---
 
@@ -77,6 +77,21 @@ Mitarbeitende der Öffentlichen Verwaltung oder verwandten Institutionen, die mi
 Das  Organisationsteam sucht Gastgeber und Vortragende. Die Gastgeber stellen den Raum und die Verpflegung zur Verfügung.
 
 
+---
+
+
+### Bisherige Veranstaltungen
+
+-     September 2018, SECO
+
+-   Frühling 2019, KOF
+
+-   Herbst 2019, Freiburg
+
+- Frühling 2021, online
+
+Slides aller Veranstaltungen hier: 
+<font > <color #1f65b7> https://github.com/swiss-adminR  </color></font>
 
 
 
@@ -90,15 +105,16 @@ class:  bottom, center, inverse
 
 <br>
 
-`r icon::fa_meetup(size = 2)`  https://www.meetup.com/adminr/
+https://www.meetup.com/adminr/
 
-`r icon::fa_github(size = 2)`  https://github.com/swiss-adminR
+https://github.com/swiss-adminR
 
-`r icon::fa_twitter(size = 2)`  https://twitter.com/adminR3
+https://twitter.com/adminR3
 
 <br>
 
-`r icon::fa_envelope(size = 2)`
+
+
 
 [Ronald](mailto:ronald.indergand@seco.admin.ch), [Christoph](mailto:christoph@cynkra.com), [Andrea](mailto:andrea.schnell@statistik.ji.zh.ch)
 

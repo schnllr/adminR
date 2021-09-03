@@ -6,7 +6,7 @@
 
 
 body { font-family: 'helvetica','Lucida Console', 'Source Code Pro', 'Droid Serif', 'Palatino Linotype';
-    font-size: 18pt;
+    font-size: 20;
     font-weight: normal;
     color: black;
 }
@@ -24,7 +24,7 @@ h1 {
 h2 {
   font-family:'helvetica', 'Yanone Kaffeesatz';
   font-weight: bold;
-  font-size: 20pt;
+  font-size: 24pt;
   line-height: 0.5em;
 }
 
@@ -32,14 +32,14 @@ h3 {
   font-family: 'helvetica','Yanone Kaffeesatz';
   font-weight: normal;
   color:  #1f65b7;
-  font-size: 18pt;
+  font-size: 20pt;
 }
 
 bullets {font-family: 'helvetica','Lucida Console';
     display: inline-block;
     line-height: 2em;
     padding-top: 2em;
-    font-size: 18pt;
+    font-size: 20pt;
     font-weight: normal;
     color: black;
 }
@@ -54,7 +54,7 @@ a, a > code {
 .remark-slide-content { 
   padding: 50px;
   line-height: 1.25em;
-  font-size: 18pt;
+  font-size: 20pt;
   text-decoration: none;
 }
  

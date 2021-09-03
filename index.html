@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="" xml:lang="">
   <head>
     <title>adminR</title>
-    <meta charset="utf-8">
-    <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="libs\adminr_style.css" type="text/css" />
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="libs/adminr_style.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
 # adminR
-## R in Official Statistics
-### <code>Autumn Edition: 19. September 2019</code>
+## R in Official Statistics and Public Administration
+### <code>Workshop Statistiktage, &lt;br /&gt;6. September 2021</code>
 
 ---
 
@@ -23,21 +23,21 @@ class: center, middle, inverse, title-slide
 
 # Programm
 
-- &lt;font &gt; &lt;b&gt; adminR&lt;/b&gt;&lt;/font&gt;
+- &lt;font &gt; &lt;b&gt; Introduction to adminR&lt;/b&gt;&lt;/font&gt;
 
-- &lt;font &gt; &lt;b&gt; R at the Statistical Office of the Canton of Fribourg&lt;/b&gt;&lt;/font&gt;, &lt;br /&gt;
-Reto Messikommer
+- &lt;font &gt; &lt;b&gt; swissdd&lt;/b&gt;&lt;/font&gt;&lt;br /&gt;
+Thomas Lo Russo, Statistisches Amt Kanton Zürich
 
-- &lt;font &gt; &lt;b&gt; Introducing the Group for Applied Statistics and Modeling&lt;/b&gt;&lt;/font&gt;, &lt;br /&gt;
-Laurent Donzé
+- &lt;font &gt; &lt;b&gt; staagBevproj&lt;/b&gt;&lt;/font&gt; &lt;br /&gt;
+Tina Cornioley, Statistik Aargau
 
-- &lt;font &gt; &lt;b&gt; Demographical Long-Term Financing of the Swiss Social Insurances&lt;/b&gt;&lt;/font&gt;, &lt;br /&gt;
-Layal Christine Lettry
+- &lt;font &gt; &lt;b&gt; MRMT&lt;/b&gt;&lt;/font&gt; &lt;br /&gt;
+Michele Rigamonti, Ufficio di statistica
 
-- &lt;font &gt; &lt;b&gt; Handling of spatial data with R at the Statistical Office of the Canton of Zurich&lt;/b&gt;&lt;/font&gt;, &lt;br /&gt;
-Katharina Kälin
+- &lt;font &gt; &lt;b&gt; kofdata &lt;/b&gt;&lt;/font&gt; &lt;br /&gt;
+Matthias Bannert, KOF ETHZ
 
-- &lt;font &gt; &lt;b&gt; Apéro&lt;/b&gt;&lt;/font&gt;
+- &lt;font &gt; &lt;b&gt; End&lt;/b&gt;&lt;/font&gt;
 
 ---
 
@@ -78,6 +78,21 @@ Mitarbeitende der Öffentlichen Verwaltung oder verwandten Institutionen, die mi
 Das  Organisationsteam sucht Gastgeber und Vortragende. Die Gastgeber stellen den Raum und die Verpflegung zur Verfügung.
 
 
+---
+
+
+### Bisherige Veranstaltungen
+
+-     September 2018, SECO
+
+-   Frühling 2019, KOF
+
+-   Herbst 2019, Freiburg
+
+- Frühling 2021, online
+
+Slides aller Veranstaltungen hier: 
+&lt;font &gt; &lt;color #1f65b7&gt; https://github.com/swiss-adminR  &lt;/color&gt;&lt;/font&gt;
 
 
 
@@ -91,18 +106,24 @@ class:  bottom, center, inverse
 
 &lt;br&gt;
 
-<i class="fab  fa-meetup fa-2x "></i>  https://www.meetup.com/adminr/
+https://www.meetup.com/adminr/
 
-<i class="fab  fa-github fa-2x "></i>  https://github.com/swiss-adminR
+https://github.com/swiss-adminR
 
-<i class="fab  fa-twitter fa-2x "></i>  https://twitter.com/adminR3
+https://twitter.com/adminR3
 
 &lt;br&gt;
 
-<i class="fas  fa-envelope fa-2x "></i>
+
+
 
 [Ronald](mailto:ronald.indergand@seco.admin.ch), [Christoph](mailto:christoph@cynkra.com), [Andrea](mailto:andrea.schnell@statistik.ji.zh.ch)
+
+
+
+
     </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
@@ -112,26 +133,111 @@ class:  bottom, center, inverse
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
 });
-(function() {
-  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
   if (!r) return;
   s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
   d.head.appendChild(s);
-})();</script>
+})(document);
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
   }
-});
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
 </script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
 (function () {
   var script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
   if (location.protocol !== 'file:' && /^https?:/.test(script.src))
     script.src  = script.src.replace(/^https?:/, '');
   document.getElementsByTagName('head')[0].appendChild(script);
